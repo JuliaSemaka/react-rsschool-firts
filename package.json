@@ -1,0 +1,35 @@
+{
+  "name": "react-first-project",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "webpack",
+    "build": "webpack --mode production",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuliaSemaka/react-rsschool-firts.git"
+  },
+  "keywords": [],
+  "author": "Julia Yatsko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuliaSemaka/react-rsschool-firts/issues"
+  },
+  "homepage": "https://github.com/JuliaSemaka/react-rsschool-firts#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.0",
+    "sass": "^1.37.5",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
