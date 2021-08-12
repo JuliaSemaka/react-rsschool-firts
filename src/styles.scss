@@ -1,5 +1,5 @@
-@import "~normalize.css";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 * {
   margin: 0;
@@ -36,6 +36,43 @@ input {
   font-size: 17px;
   line-height: 21px;
   color: #000000;
+
+  &-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    color: #333333;
+  }
+
+  &-price {
+    font-weight: 600;
+  }
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-transform: uppercase;
+
+  &-blue {
+    background: linear-gradient(40deg, #8de6de, #3b95de);
+    color: #f2f9fe;
+
+    &:hover {
+      background: linear-gradient(40deg, #3b95de, #4bebdd);
+    }
+
+    &:active {
+      background: linear-gradient(40deg, #07f8e4, #3b95de);
+    }
+  }
 }
 
 #root {
@@ -54,7 +91,7 @@ input {
 
 .search {
   position: relative;
-  margin: 20px 10% 0;
+  margin: 30px 10% 0;
 
   &__img {
     height: 20px;
@@ -74,7 +111,7 @@ input {
 
 .main {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 30px;
 
   &-container {
     display: flex;
@@ -98,13 +135,14 @@ input {
     height: 15%;
     background-color: #f3f3f3;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
   }
 
   &-description {
     width: 100%;
+    height: 30%;
     padding: 5px;
   }
 
@@ -113,10 +151,40 @@ input {
       width: 100%;
       height: 55%;
       object-fit: cover;
+
+      &_flag {
+        height: 25px;
+        width: 40px;
+      }
     }
 
     &__change {
       margin-top: 10px;
     }
+  }
+}
+
+.stars {
+  &_img {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.reviews {
+  height: 60%;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  &_text {
+    cursor: pointer;
   }
 }
