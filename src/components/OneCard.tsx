@@ -6,8 +6,8 @@ import CardDescription from './CardDescription';
 import CardPrice from './CardPrice';
 
 const OneCard: React.FC = () => (
-  <div className="card card-word">
-    <img className="card-word-img" src={img} alt="img" />
+  <div className="card">
+    <img className="card-img" src={img} alt="img" />
     <CardPrice />
     <CardDescription />
   </div>

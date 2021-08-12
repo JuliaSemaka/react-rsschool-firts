@@ -11,7 +11,7 @@ const CardPrice: React.FC = () => (
       <p className="text">Hurgada</p>
     </div>
     <div className="card-price_item">
-      <img className="card-word-img_flag" src={flag} alt="aaa" />
+      <img className="card-img_flag" src={flag} alt="aaa" />
     </div>
   </div>
 );
