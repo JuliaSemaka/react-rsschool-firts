@@ -1,18 +1,19 @@
 {
   "name": "react-first-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Reat project",
   "private": true,
   "scripts": {
-    "dev": "webpack",
-    "build": "webpack --mode production",
+    "dev": "webpack serve --env development",
+    "build": "webpack",
+    "lint": "eslint src",
+    "lint-dev": "eslint --fix --ext .ts .",
     "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JuliaSemaka/react-rsschool-firts.git"
   },
-  "keywords": [],
   "author": "Julia Yatsko",
   "license": "ISC",
   "bugs": {
@@ -20,17 +21,31 @@
   },
   "homepage": "https://github.com/JuliaSemaka/react-rsschool-firts#readme",
   "devDependencies": {
+    "@types/react": "^17.0.17",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-webpack-plugin": "^3.0.1",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.2.0",
+    "prettier": "^2.3.2",
     "sass": "^1.37.5",
     "sass-loader": "^12.1.0",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.3.5",
     "webpack": "^5.48.0",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
