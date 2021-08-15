@@ -1,3 +1,5 @@
+export const NUMBER_ONE = 1;
+
 export interface IHotel {
   name: string;
   stars: number;

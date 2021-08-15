@@ -1,14 +1,14 @@
 import React from 'react';
 
 import like from '../assets/like.png';
-import { IOneCard } from './components.module';
+import { IOneCard, NUMBER_ONE } from './components.module';
 import Star from './Star';
 
 const CardDescription: React.FC<IOneCard> = ({ hotel }: IOneCard) => (
   <div className="card-description">
     <p className="text text-title">{hotel.name}</p>
     <div className="stars">
-      {new Array(hotel.stars).fill(1).map((item) => (
+      {new Array(hotel.stars).fill(NUMBER_ONE).map((item) => (
         <Star key={item} />
       ))}
     </div>
