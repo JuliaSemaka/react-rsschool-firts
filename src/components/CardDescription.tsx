@@ -8,8 +8,8 @@ const CardDescription: React.FC<IOneCard> = ({ hotel }: IOneCard) => (
   <div className="card-description">
     <p className="text text-title">{hotel.name}</p>
     <div className="stars">
-      {new Array(hotel.stars).fill(NUMBER_ONE).map((item) => (
-        <Star key={item} />
+      {new Array(hotel.stars).fill(NUMBER_ONE).map((item, key) => (
+        <Star key={key} />
       ))}
     </div>
     <div className="reviews">
