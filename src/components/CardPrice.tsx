@@ -1,17 +1,17 @@
 import React from 'react';
 
-import flag from '../assets/flag.png';
+import { IOneCard } from './components.module';
 
-const CardPrice: React.FC = () => (
+const CardPrice: React.FC<IOneCard> = ({ hotel }: IOneCard) => (
   <div className="card-price">
     <div className="card-price_item">
       <p className="text text-price">
-        <span>1255.6</span> $
+        <span>{hotel.price}</span> $
       </p>
-      <p className="text">Hurgada</p>
+      <p className="text">{hotel.city}</p>
     </div>
     <div className="card-price_item">
-      <img className="card-img_flag" src={flag} alt="aaa" />
+      <img className="card-img_flag" src={`assets/flags/${hotel.flag}.jpg`} alt="aaa" />
     </div>
   </div>
 );

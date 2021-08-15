@@ -1,15 +1,14 @@
 import React from 'react';
 
-import img from '../assets/hotel.jpg';
-import flag from '../assets/flag.png';
 import CardDescription from './CardDescription';
 import CardPrice from './CardPrice';
+import { IOneCard } from './components.module';
 
-const OneCard: React.FC = () => (
+const OneCard: React.FC<IOneCard> = ({ hotel }: IOneCard) => (
   <div className="card">
-    <img className="card-img" src={img} alt="img" />
-    <CardPrice />
-    <CardDescription />
+    <img className="card-img" src={`assets/hotels/${hotel.img}.jpg`} alt="img" />
+    <CardPrice hotel={hotel} />
+    <CardDescription hotel={hotel} />
   </div>
 );
 
