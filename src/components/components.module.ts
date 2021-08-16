@@ -33,7 +33,6 @@ export interface IHeader {
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-
 export interface ITourists {
   FirstName: string;
   LastName: string;

@@ -5,7 +5,7 @@ import search from '../assets/search.svg';
 const App: React.FC = () => {
   const [valueSearch, setValueSearch] = useState('');
 
-  const changeSearch = (event: React.ChangeEvent<HTMLInputElement>) => setValueSearch(event.target.value);
+  const changeSearch = (event: React.ChangeEvent<HTMLInputElement>): void => setValueSearch(event.target.value);
 
   return (
     <div className="search">

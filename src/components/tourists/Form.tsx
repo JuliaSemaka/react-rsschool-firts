@@ -23,7 +23,7 @@ const Form: React.FC<IForm> = ({ valueForm, setValueForm, addCards }: IForm) => 
     validate();
   }, [valueForm]);
 
-  const validate = () => {
+  const validate = (): void => {
     resetErrors();
     if (!valueForm.agree) {
       setErrors((state) => ({ ...state, agree: 'Field must be true' }));
@@ -39,7 +39,7 @@ const Form: React.FC<IForm> = ({ valueForm, setValueForm, addCards }: IForm) => 
     }
   };
 
-  const resetErrors = () => {
+  const resetErrors = (): void => {
     setErrors({});
   };
 
