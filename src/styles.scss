@@ -54,6 +54,13 @@ input {
     line-height: 20px;
     color: #a9a5a5;
   }
+
+  &-error {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 17px;
+    color: #f51b1b;
+  }
 }
 
 .button {
@@ -69,15 +76,15 @@ input {
   text-transform: uppercase;
 
   &-grey {
-    background: linear-gradient(40deg, #ffffff, #e0dfdf);
+    background: inherit;
     color: #424040;
 
     &:hover {
-      background: linear-gradient(40deg, #4b4b4b, #c7c7c7);
+      background: #c7c7c7;
     }
 
     &:active {
-      background: linear-gradient(40deg, #c7c7c7, #4b4b4b);
+      background: #ada5a5;
     }
   }
 
@@ -91,6 +98,17 @@ input {
 
     &:active {
       background: linear-gradient(40deg, #07f8e4, #3b95de);
+    }
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: no-drop;
+
+    &:hover,
+    &:active {
+      background-color: #cccccc;
     }
   }
 }
@@ -228,15 +246,22 @@ input {
   width: 100%;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.14);
 
-  &-select {
+  &-item {
     width: 100%;
+
+    & h3,
+    & p {
+      display: inline-block;
+      margin-right: 20px;
+    }
   }
 
   &-data {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 50%;
+    align-items: center;
+    width: 40%;
+    padding: 20px;
 
     & > * {
       margin-top: 15px;
@@ -244,6 +269,14 @@ input {
 
     & > button {
       width: auto;
+    }
+
+    &__item {
+      width: 100%;
+      border: 1px solid #efefef;
+      border-radius: 3px;
+      padding: 10px;
+      text-align: center;
     }
   }
 }

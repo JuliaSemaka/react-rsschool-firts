@@ -4,7 +4,7 @@ import { IRadio } from '../components.module';
 
 const Radio: React.FC<IRadio> = ({ valueForm, setValueForm, field, title, listData }: IRadio) => (
   <div className="radio">
-    <h3>{title}</h3>
+    <h3 className="text text-form">{title}</h3>
     <div className="radio-block text">
       {(listData as string[]).map((item) => (
         <div className="radio-block__elem" key={item}>

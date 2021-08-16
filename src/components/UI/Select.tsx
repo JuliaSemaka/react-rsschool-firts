@@ -3,7 +3,7 @@ import React from 'react';
 import { IRadio } from '../components.module';
 
 const Select: React.FC<IRadio> = ({ valueForm, setValueForm, field, title, listData }: IRadio) => (
-  <div className="form-select">
+  <div className="form-item">
     <h3 className="text text-form">{title}</h3>
     <select
       name={field}

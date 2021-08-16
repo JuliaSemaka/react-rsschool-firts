@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Cards from './components/Cards';
 import Header from './components/Header';
-import Tourists from './components/Tourists';
+import Tourists from './components/tourists/Tourists';
 import './styles.scss';
 
 const App: React.FC = () => {

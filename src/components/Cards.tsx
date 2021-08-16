@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { listHotels } from '../assets/hotels';
 import { IHotel } from './components.module';
 import OneCard from './OneCard';

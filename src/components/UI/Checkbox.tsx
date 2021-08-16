@@ -2,8 +2,9 @@ import React from 'react';
 
 import { IRadio } from '../components.module';
 
-const Checkbox: React.FC<IRadio> = ({ valueForm, setValueForm, field, title }: IRadio) => (
+const Checkbox: React.FC<IRadio> = ({ valueForm, setValueForm, field, title, errors }: IRadio) => (
   <div className="checkbox-block text">
+    {errors && <p className="text text-error">{errors}</p>}
     <input
       type="checkbox"
       id={field}
