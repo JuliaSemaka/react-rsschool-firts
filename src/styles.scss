@@ -272,11 +272,19 @@ input {
     }
 
     &__item {
+      position: relative;
       width: 100%;
       border: 1px solid #efefef;
       border-radius: 3px;
       padding: 10px;
       text-align: center;
+
+      &_close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+      }
     }
   }
 }

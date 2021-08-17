@@ -66,5 +66,6 @@ export interface IForm {
 }
 
 export interface ICardsTourists {
-  valueCards: ITourists[]
+  valueCards: ITourists[];
+  delCard: (index: number) => void;
 }

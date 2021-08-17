@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { CARDS_TOURISTS, DEFAULT_COUNT_NIGHT, EGender, ITourists } from '../components.module';
 import CardsTourists from './CardsTourists';
@@ -17,9 +17,10 @@ const Tourists: React.FC = () => {
   const cardsTourists: ITourists[] = JSON.parse(localStorage.getItem(CARDS_TOURISTS) || '[]');
   const [valueCards, setValueCards] = useState(cardsTourists);
 
+  useEffect(() => localStorage.setItem(CARDS_TOURISTS, JSON.stringify(valueCards)), [valueCards]);
+
   const addCards = (cards: ITourists): void => {
     setValueCards((state) => {
-      localStorage.setItem(CARDS_TOURISTS, JSON.stringify([...state, cards]));
       return [...state, cards];
     });
     setValueForm({
@@ -32,10 +33,16 @@ const Tourists: React.FC = () => {
     });
   };
 
+  const delCard = (index: number): void => {
+    setValueCards((state) => {
+      return state.filter((item, i) => index !== i);
+    });
+  };
+
   return (
     <div className="form">
       <Form valueForm={valueForm} setValueForm={setValueForm} addCards={addCards} />
-      <CardsTourists valueCards={valueCards} />
+      <CardsTourists valueCards={valueCards} delCard={delCard} />
     </div>
   );
 };
