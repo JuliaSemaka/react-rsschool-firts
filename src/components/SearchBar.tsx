@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
 import search from '../assets/search.svg';
+import { ISearchBar } from './components.module';
+import Loader from './UI/loader/Loader';
 
-const App: React.FC = () => {
+const SearchBar: React.FC<ISearchBar> = ({ setSearchValue, isLoader }: ISearchBar) => {
   const [valueSearch, setValueSearch] = useState('');
 
   const changeSearch = (event: React.ChangeEvent<HTMLInputElement>): void => setValueSearch(event.target.value);
@@ -17,8 +19,12 @@ const App: React.FC = () => {
         value={valueSearch}
         onChange={changeSearch}
       />
+      <button className="button button-green" onClick={() => setSearchValue(valueSearch)} disabled={isLoader || !valueSearch}>
+        Search
+      </button>
+      {isLoader && <Loader />}
     </div>
   );
 };
 
-export default App;
+export default SearchBar;
