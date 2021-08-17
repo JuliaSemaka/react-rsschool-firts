@@ -30,7 +30,7 @@ const Pagination: React.FC<IPagination> = ({
           </button>
         ))}
       </div>
-      <div>
+      <div className="pagination-count">
         <p className="text text-form">Number of articles:</p>
         <select
           name="pagination-count"
