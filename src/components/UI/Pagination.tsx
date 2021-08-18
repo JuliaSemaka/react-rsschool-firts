@@ -12,10 +12,14 @@ const Pagination: React.FC<IPagination> = ({
   const arrayPagination = (): number[] => {
     const countPage = totalArticles / countArticlesPage;
     return countPage < DEFAULT_COUNT_ARTICLES
-      ? new Array(Math.ceil(countPage)).fill(NUMBER_ONE)
-      : new Array(Math.ceil(DEFAULT_COUNT_ARTICLES)).fill(NUMBER_ONE);
+      ? new Array(Math.floor(countPage)).fill(NUMBER_ONE)
+      : new Array(Math.floor(DEFAULT_COUNT_ARTICLES)).fill(NUMBER_ONE);
   };
   const countPage = [10, 20, 30, 50, 100];
+  const chageCountPage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPageNumber(NUMBER_ONE);
+    setCountArticlesPage(Number(e.target.value));
+  };
 
   return (
     <>
@@ -36,7 +40,7 @@ const Pagination: React.FC<IPagination> = ({
           name="pagination-count"
           className="input text"
           value={countArticlesPage}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCountArticlesPage(Number(e.target.value))}
+          onChange={chageCountPage}
         >
           {countPage.map((item, i) => (
             <option value={item} key={item}>

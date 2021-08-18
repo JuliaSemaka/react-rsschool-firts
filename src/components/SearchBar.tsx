@@ -8,6 +8,11 @@ const SearchBar: React.FC<ISearchBar> = ({ setSearchValue, isLoader }: ISearchBa
   const [valueSearch, setValueSearch] = useState('');
 
   const changeSearch = (event: React.ChangeEvent<HTMLInputElement>): void => setValueSearch(event.target.value);
+  const enterPress = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      setSearchValue(valueSearch);
+    }
+  };
 
   return (
     <div className="search">
@@ -18,8 +23,13 @@ const SearchBar: React.FC<ISearchBar> = ({ setSearchValue, isLoader }: ISearchBa
         className="text search__input"
         value={valueSearch}
         onChange={changeSearch}
+        onKeyPress={enterPress}
       />
-      <button className="button button-green" onClick={() => setSearchValue(valueSearch)} disabled={isLoader || !valueSearch}>
+      <button
+        className="button button-green"
+        onClick={() => setSearchValue(valueSearch)}
+        disabled={isLoader || !valueSearch}
+      >
         Search
       </button>
       {isLoader && <Loader />}

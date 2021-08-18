@@ -30,7 +30,6 @@ const App: React.FC = () => {
     try {
       const res = await getArticles(searchValue, countArticlesPage, sortBy, pageNumber);
       setResSearch(res.articles);
-      console.log(res.articles);
     } catch (err) {
       console.log(err);
     } finally {
