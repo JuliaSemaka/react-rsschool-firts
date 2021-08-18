@@ -31,7 +31,7 @@ const App: React.FC = () => {
       const res = await getArticles(searchValue, countArticlesPage, sortBy, pageNumber);
       setResSearch(res.articles);
     } catch (err) {
-      console.log(err);
+      throw Error(err);
     } finally {
       setIsLoader(false);
     }
