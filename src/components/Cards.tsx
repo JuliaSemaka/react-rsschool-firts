@@ -11,7 +11,7 @@ const Cards: React.FC = () => {
     <main className="main">
       <div className="main-container">
         {listCards.map((item: IHotel, index) => (
-          <OneCard key={item.name} hotel={item} />
+          <OneCard key={item.name} hotel={item} index={index} />
         ))}
       </div>
     </main>

@@ -20,6 +20,12 @@ export enum EGender {
   WOMAN = 'woman',
 }
 
+export enum ERoute {
+  HOME = '/',
+  ABOUT = '/about',
+  DETAILS = '/details',
+}
+
 export interface IHotel {
   name: string;
   stars: number;
@@ -31,6 +37,7 @@ export interface IHotel {
 
 export interface IOneCard {
   hotel: IHotel;
+  index?: number;
 }
 
 export interface IHeader {
@@ -98,4 +105,8 @@ export interface IForm {
 export interface ICardsTourists {
   valueCards: ITourists[];
   delCard: (index: number) => void;
+}
+
+export interface IDetails {
+  article: string;
 }
