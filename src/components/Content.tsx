@@ -20,7 +20,7 @@ const Contents: React.FC = () => {
           <Switch location={location}>
             <Route component={Home} path={ERoute.HOME} exact />
             <Route component={About} path={ERoute.ABOUT} />
-            <Route component={Details} path={`${ERoute.DETAILS}/:article?`} />
+            <Route component={Details} path={`${ERoute.DETAILS}-:article`} />
             <Route component={PageError} path="*" />
           </Switch>
         </CSSTransition>

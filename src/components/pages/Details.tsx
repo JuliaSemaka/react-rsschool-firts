@@ -7,6 +7,7 @@ import Star from '../Star';
 
 const Details: React.FC = () => {
   const { article }: IDetails = useParams();
+  console.log(article);
 
   const listCards = listHotels[Number(article)];
 
