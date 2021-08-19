@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
-import Cards from '../../components/Cards';
-import { DEFAULT_COUNT_ARTICLES, NUMBER_ONE, TOTAL_COUNT_ARTICLES } from '../../components/components.module';
-import Header from '../../components/Header';
-import ResultSearch from '../../components/ResultSearch';
-import { getArticles } from '../../components/services/api';
-import { ESortBy, IArticles } from '../../components/services/api.module';
-import Tourists from '../../components/tourists/Tourists';
+import Cards from '../Cards';
+import { DEFAULT_COUNT_ARTICLES, NUMBER_ONE, TOTAL_COUNT_ARTICLES } from '../components.module';
+import Header from '../Header';
+import ResultSearch from '../ResultSearch';
+import { getArticles } from '../services/api';
+import { ESortBy, IArticles } from '../services/api.module';
+import Tourists from '../tourists/Tourists';
 
 const Home: React.FC = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [resSearch, setResSearch] = useState<IArticles[]>([]);
-  const [totalSearch, setTotalSearch] = useState<number>(TOTAL_COUNT_ARTICLES);
+  const [totalSearch] = useState<number>(TOTAL_COUNT_ARTICLES);
   const [countArticlesPage, setCountArticlesPage] = useState<number>(DEFAULT_COUNT_ARTICLES);
   const [searchValue, setSearchValue] = useState('');
   const [isLoader, setIsLoader] = useState<boolean>(false);
   const [pageNumber, setPageNumber] = useState<number>(NUMBER_ONE);
   const [sortBy, setSortBy] = useState<ESortBy>(ESortBy.popularity);
-
-  useEffect(() => {
-    if (searchValue) {
-      searchArticles();
-    }
-  }, [sortBy, pageNumber, countArticlesPage, searchValue]);
 
   const searchArticles = async () => {
     setIsLoader(true);
@@ -35,6 +29,12 @@ const Home: React.FC = () => {
       setIsLoader(false);
     }
   };
+
+  useEffect(() => {
+    if (searchValue) {
+      searchArticles();
+    }
+  }, [sortBy, pageNumber, countArticlesPage, searchValue]);
 
   return (
     <div className="wrapper">

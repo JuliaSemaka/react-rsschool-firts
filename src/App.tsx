@@ -5,12 +5,10 @@ import Contents from './components/Content';
 
 import './styles.scss';
 
-const App: React.FC = () => {
-  return (
-    <BrowserRouter>
-      <Contents />
-    </BrowserRouter>
-  );
-};
+const App: React.FC = () => (
+  <BrowserRouter>
+    <Contents />
+  </BrowserRouter>
+);
 
 export default App;

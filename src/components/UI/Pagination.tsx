@@ -36,13 +36,8 @@ const Pagination: React.FC<IPagination> = ({
       </div>
       <div className="pagination-count">
         <p className="text text-form">Number of articles:</p>
-        <select
-          name="pagination-count"
-          className="input text"
-          value={countArticlesPage}
-          onChange={chageCountPage}
-        >
-          {countPage.map((item, i) => (
+        <select name="pagination-count" className="input text" value={countArticlesPage} onChange={chageCountPage}>
+          {countPage.map((item) => (
             <option value={item} key={item}>
               {item}
             </option>

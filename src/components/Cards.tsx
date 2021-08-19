@@ -5,7 +5,7 @@ import { IHotel } from './components.module';
 import OneCard from './OneCard';
 
 const Cards: React.FC = () => {
-  const [listCards, setListCards] = useState(listHotels);
+  const [listCards] = useState(listHotels);
 
   return (
     <main className="main">

@@ -1,4 +1,4 @@
-import { ESortBy, IArticles } from "./services/api.module";
+import { ESortBy, IArticles } from './services/api.module';
 
 export const NUMBER_ONE = 1;
 export const DEFAULT_COUNT_ARTICLES = 10;

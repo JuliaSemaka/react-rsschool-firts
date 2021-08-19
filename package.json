@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --env development",
     "build": "webpack",
-    "lint": "eslint src",
+    "lint": "eslint src --fix",
     "lint-dev": "eslint --fix --ext .ts .",
     "watch": "webpack --watch"
   },
