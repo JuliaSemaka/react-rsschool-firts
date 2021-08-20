@@ -9,7 +9,8 @@ export const COUNT_ARTICLES_PAGE = 'COUNT_ARTICLES_PAGE';
 export const IS_LOADER = 'IS_LOADER';
 export const SORT_BY = 'SORT_BY';
 export const PAGE_NUMBER = 'PAGE_NUMBER';
-export const VALUE_CARDS = 'VALUE_CARDS';
+export const ADD_VALUE_CARDS = 'ADD_VALUE_CARDS';
+export const DEL_VALUE_CARDS = 'DEL_VALUE_CARDS';
 
 export interface IListHotels {
   name: string,
@@ -35,6 +36,7 @@ export interface IMyReducer {
 export interface IHotels {
   listHotels: IListHotels[];
   cardsTourists: ITourists[];
+  countNight: number[];
 }
 
 export interface IAction {

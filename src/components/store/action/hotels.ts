@@ -1,6 +1,10 @@
 import { ITourists } from "../../components.module";
-import { IAction, VALUE_CARDS } from "../reducers/reducers.module";
+import { ADD_VALUE_CARDS, DEL_VALUE_CARDS, IAction } from "../reducers/reducers.module";
 
-export const setValueCards = (value: ITourists[]): IAction => {
-  return {type: VALUE_CARDS, payload: value};
+export const addValueCards = (cards: ITourists): IAction => {
+  return {type: ADD_VALUE_CARDS, payload: cards};
+}
+
+export const delValueCards = (index: number): IAction => {
+  return {type: DEL_VALUE_CARDS, payload: index};
 }

@@ -1,25 +1,41 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  ECountNight, EGender, IErrors, IForm,
+  CARDS_TOURISTS,
+  DEFAULT_COUNT_NIGHT,
+  ECountNight, EGender, IErrors, ITourists,
 } from '../components.module';
+import { addValueCards } from '../store/action/hotels';
+import { IReducer } from '../store/reducers/reducers.module';
 import Checkbox from '../UI/Checkbox';
 import Input from '../UI/Input';
 import Radio from '../UI/Radio';
 import Select from '../UI/Select';
 
-const Form: React.FC<IForm> = ({ valueForm, setValueForm, addCards }: IForm) => {
+const Form: React.FC = () => {
+  const { cardsTourists, countNight } = useSelector((state: IReducer) => state.hotels);
+  const dispatch = useDispatch();
+
+  const stateForm: ITourists = {
+    FirstName: '',
+    LastName: '',
+    DateOfBirth: '',
+    CountNight: DEFAULT_COUNT_NIGHT,
+    gender: EGender.MAN,
+    agree: true,
+  };
+  const [valueForm, setValueForm] = useState(stateForm);
   const objErr: IErrors = {};
   const [errors, setErrors] = useState(objErr);
   const [messageSuccess, setMessageSuccess] = useState(false);
-  const CountNight: number[] = [
-    ECountNight.six,
-    ECountNight.seven,
-    ECountNight.eight,
-    ECountNight.nine,
-    ECountNight.ten,
-    ECountNight.eleven,
-  ];
+
+  useEffect(() => localStorage.setItem(CARDS_TOURISTS, JSON.stringify(cardsTourists)), [cardsTourists]);
+
+  const addCards = (cards: ITourists): void => {
+    dispatch(addValueCards(cards));
+    setValueForm(stateForm);
+  };
 
   const resetErrors = (): void => {
     setErrors({});
@@ -87,7 +103,7 @@ const Form: React.FC<IForm> = ({ valueForm, setValueForm, addCards }: IForm) => 
         setValueForm={setValueForm}
         field="CountNight"
         title="Select the number of nights:"
-        listData={CountNight}
+        listData={countNight}
       />
 
       <Radio
