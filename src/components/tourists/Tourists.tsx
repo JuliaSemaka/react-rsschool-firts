@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  CARDS_TOURISTS, DEFAULT_COUNT_NIGHT, EGender, ITourists,
-} from '../components.module';
+import { CARDS_TOURISTS, DEFAULT_COUNT_NIGHT, EGender, ITourists } from '../components.module';
+import { IReducer } from '../store/reducers/reducers.module';
 import CardsTourists from './CardsTourists';
 import Form from './Form';
 
 const Tourists: React.FC = () => {
+  const { cardsTourists } = useSelector((state: IReducer) => state.hotels);
+  const dispatch = useDispatch();
+
   const stateForm: ITourists = {
     FirstName: '',
     LastName: '',
@@ -16,7 +19,7 @@ const Tourists: React.FC = () => {
     agree: true,
   };
   const [valueForm, setValueForm] = useState(stateForm);
-  const cardsTourists: ITourists[] = JSON.parse(localStorage.getItem(CARDS_TOURISTS) || '[]');
+
   const [valueCards, setValueCards] = useState(cardsTourists);
 
   useEffect(() => localStorage.setItem(CARDS_TOURISTS, JSON.stringify(valueCards)), [valueCards]);

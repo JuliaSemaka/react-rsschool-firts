@@ -40,36 +40,6 @@ export interface IOneCard {
   index?: number;
 }
 
-export interface IHeader {
-  setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
-  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-  isLoader: boolean;
-}
-
-export interface ISearchBar {
-  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-  isLoader: boolean;
-}
-
-export interface IResultSearch {
-  resSearch: IArticles[];
-  totalSearch: number;
-  countArticlesPage: number;
-  pageNumber: number;
-  sortBy: ESortBy;
-  setSortBy: React.Dispatch<React.SetStateAction<ESortBy>>;
-  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
-  setCountArticlesPage: React.Dispatch<React.SetStateAction<number>>;
-}
-
-export interface IPagination {
-  countArticlesPage: number;
-  totalArticles: number;
-  pageNumber: number;
-  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
-  setCountArticlesPage: React.Dispatch<React.SetStateAction<number>>;
-}
-
 export interface ITourists {
   FirstName: string;
   LastName: string;

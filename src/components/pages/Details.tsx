@@ -1,14 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { listHotels } from '../../assets/hotels';
 import { IDetails, NUMBER_ONE } from '../components.module';
 import Star from '../Star';
+import { IReducer } from '../store/reducers/reducers.module';
 
 const Details: React.FC = () => {
   const { article }: IDetails = useParams();
-  console.log(article);
 
+  const { listHotels } = useSelector((state: IReducer) => state.hotels);
   const listCards = listHotels[Number(article)];
 
   return (

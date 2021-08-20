@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import { listHotels } from '../assets/hotels';
 import { IHotel } from './components.module';
 import OneCard from './OneCard';
+import { IReducer } from './store/reducers/reducers.module';
 
 const Cards: React.FC = () => {
-  const [listCards] = useState(listHotels);
+  const { listHotels } = useSelector((state: IReducer) => state.hotels);
 
   return (
     <main className="main">
       <div className="main-container">
-        {listCards.map((item: IHotel, index) => (
+        {listHotels.map((item: IHotel, index) => (
           <OneCard key={item.name} hotel={item} index={index} />
         ))}
       </div>

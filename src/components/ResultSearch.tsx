@@ -1,20 +1,16 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { IResultSearch } from './components.module';
 import { ESortBy, IArticles } from './services/api.module';
+import { setSortBy } from './store/action/myAction';
+import { IReducer } from './store/reducers/reducers.module';
 import Pagination from './UI/Pagination';
 
-const ResultSearch: React.FC<IResultSearch> = ({
-  resSearch,
-  totalSearch,
-  countArticlesPage,
-  pageNumber,
-  sortBy,
-  setSortBy,
-  setPageNumber,
-  setCountArticlesPage,
-}: IResultSearch) => {
+const ResultSearch: React.FC = () => {
   const SORT_ARR = [ESortBy.popularity, ESortBy.publishedAt, ESortBy.relevancy];
+
+  const { resSearch, sortBy } = useSelector((state: IReducer) => state.myReducer);
+  const dispatch = useDispatch();
 
   return (
     <div className="result-search">
@@ -24,7 +20,7 @@ const ResultSearch: React.FC<IResultSearch> = ({
           name="pagination-count"
           className="input text"
           value={sortBy}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSortBy(e.target.value as ESortBy)}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => dispatch(setSortBy(e.target.value as ESortBy))}
         >
           {SORT_ARR.map((item) => (
             <option value={item} key={item}>
@@ -47,13 +43,7 @@ const ResultSearch: React.FC<IResultSearch> = ({
           </div>
         </div>
       ))}
-      <Pagination
-        countArticlesPage={countArticlesPage}
-        totalArticles={totalSearch}
-        pageNumber={pageNumber}
-        setPageNumber={setPageNumber}
-        setCountArticlesPage={setCountArticlesPage}
-      />
+      <Pagination />
     </div>
   );
 };

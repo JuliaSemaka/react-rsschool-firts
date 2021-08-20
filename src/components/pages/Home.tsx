@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Cards from '../Cards';
-import { DEFAULT_COUNT_ARTICLES, NUMBER_ONE, TOTAL_COUNT_ARTICLES } from '../components.module';
 import Header from '../Header';
 import ResultSearch from '../ResultSearch';
 import { getArticles } from '../services/api';
-import { ESortBy, IArticles } from '../services/api.module';
+import { fetchArticles, setIsLoader, setResSearch } from '../store/action/myAction';
+import { IReducer } from '../store/reducers/reducers.module';
 import Tourists from '../tourists/Tourists';
 
 const Home: React.FC = () => {
-  const [showForm, setShowForm] = useState<boolean>(false);
-  const [resSearch, setResSearch] = useState<IArticles[]>([]);
-  const [totalSearch] = useState<number>(TOTAL_COUNT_ARTICLES);
-  const [countArticlesPage, setCountArticlesPage] = useState<number>(DEFAULT_COUNT_ARTICLES);
-  const [searchValue, setSearchValue] = useState('');
-  const [isLoader, setIsLoader] = useState<boolean>(false);
-  const [pageNumber, setPageNumber] = useState<number>(NUMBER_ONE);
-  const [sortBy, setSortBy] = useState<ESortBy>(ESortBy.popularity);
+  const { searchValue, showForm, resSearch, countArticlesPage, sortBy, pageNumber } = useSelector(
+    (state: IReducer) => state.myReducer,
+  );
+  const dispatch = useDispatch();
 
   const searchArticles = async () => {
-    setIsLoader(true);
+    dispatch(setIsLoader(true));
     try {
-      const res = await getArticles(searchValue, countArticlesPage, sortBy, pageNumber);
-      setResSearch(res.articles);
+      dispatch(fetchArticles(searchValue, countArticlesPage, sortBy, pageNumber));
     } catch (err) {
       throw Error(err);
     } finally {
-      setIsLoader(false);
+      dispatch(setIsLoader(false));
     }
   };
 
@@ -38,22 +34,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="wrapper">
-      <Header setShowForm={setShowForm} setSearchValue={setSearchValue} isLoader={isLoader} />
+      <Header />
       {showForm && <Tourists />}
-      {!resSearch?.length ? (
-        <Cards />
-      ) : (
-        <ResultSearch
-          resSearch={resSearch}
-          totalSearch={totalSearch}
-          countArticlesPage={countArticlesPage}
-          pageNumber={pageNumber}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          setPageNumber={setPageNumber}
-          setCountArticlesPage={setCountArticlesPage}
-        />
-      )}
+      {!resSearch?.length ? <Cards /> : <ResultSearch />}
     </div>
   );
 };

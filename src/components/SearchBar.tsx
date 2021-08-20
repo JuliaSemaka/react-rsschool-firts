@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import search from '../assets/search.svg';
-import { ISearchBar } from './components.module';
+import { setSearchValue } from './store/action/myAction';
+import { IReducer } from './store/reducers/reducers.module';
 import Loader from './UI/loader/Loader';
 
-const SearchBar: React.FC<ISearchBar> = ({ setSearchValue, isLoader }: ISearchBar) => {
+const SearchBar: React.FC = () => {
   const [valueSearch, setValueSearch] = useState('');
+
+  const { isLoader } = useSelector((state: IReducer) => state.myReducer);
+  const dispatch = useDispatch();
 
   const changeSearch = (event: React.ChangeEvent<HTMLInputElement>): void => setValueSearch(event.target.value);
   const enterPress = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      setSearchValue(valueSearch);
+      dispatch(setSearchValue(valueSearch));
     }
   };
 
@@ -27,7 +32,7 @@ const SearchBar: React.FC<ISearchBar> = ({ setSearchValue, isLoader }: ISearchBa
       />
       <button
         className="button button-green"
-        onClick={() => setSearchValue(valueSearch)}
+        onClick={() => dispatch(setSearchValue(valueSearch))}
         disabled={isLoader || !valueSearch}
       >
         Search
