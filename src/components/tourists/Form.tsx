@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  CARDS_TOURISTS,
-  DEFAULT_COUNT_NIGHT,
-  ECountNight, EGender, IErrors, ITourists,
+  CARDS_TOURISTS, DEFAULT_COUNT_NIGHT, EGender, IErrors, ITourists,
 } from '../components.module';
 import { addValueCards } from '../store/action/hotels';
 import { IReducer } from '../store/reducers/reducers.module';

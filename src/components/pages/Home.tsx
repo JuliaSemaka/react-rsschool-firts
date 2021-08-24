@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import Cards from '../Cards';
 import Header from '../Header';
 import ResultSearch from '../ResultSearch';
-import { getArticles } from '../services/api';
-import { fetchArticles, setIsLoader, setResSearch } from '../store/action/myAction';
+import { fetchArticles, setIsLoader } from '../store/action/myAction';
 import { IReducer } from '../store/reducers/reducers.module';
 import Tourists from '../tourists/Tourists';
 
 const Home: React.FC = () => {
-  const { searchValue, showForm, resSearch, countArticlesPage, sortBy, pageNumber } = useSelector(
+  const {
+    searchValue, showForm, resSearch, countArticlesPage, sortBy, pageNumber,
+  } = useSelector(
     (state: IReducer) => state.myReducer,
   );
   const dispatch = useDispatch();
@@ -22,7 +23,9 @@ const Home: React.FC = () => {
     } catch (err) {
       throw Error(err);
     } finally {
-      dispatch(setIsLoader(false));
+      setTimeout(() => {
+        dispatch(setIsLoader(false));
+      }, 1000);
     }
   };
 

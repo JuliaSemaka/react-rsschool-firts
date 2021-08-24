@@ -1,5 +1,5 @@
-import { ITourists } from "../../components.module";
-import { ESortBy, IArticles } from "../../services/api.module";
+import { ITourists } from '../../components.module';
+import { ESortBy, IArticles } from '../../services/api.module';
 
 export const FETCH_ARTICLES = 'FETCH_ARTICLES';
 export const SEARCH_VALUE = 'SEARCH_VALUE';

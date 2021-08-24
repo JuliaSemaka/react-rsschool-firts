@@ -6,13 +6,15 @@ import { setCountArticlesPage, setPageNumber } from '../store/action/myAction';
 import { IReducer } from '../store/reducers/reducers.module';
 
 const Pagination: React.FC = () => {
-  const { totalSearch, countArticlesPage, pageNumber, countPage } = useSelector((state: IReducer) => state.myReducer);
+  const {
+    totalSearch, countArticlesPage, pageNumber, countPage,
+  } = useSelector((state: IReducer) => state.myReducer);
   const dispatch = useDispatch();
 
   const arrayPagination = (): number[] => {
-    const countPage = totalSearch / countArticlesPage;
-    return countPage < DEFAULT_COUNT_ARTICLES
-      ? new Array(Math.floor(countPage)).fill(NUMBER_ONE)
+    const COUNT_PAGE = totalSearch / countArticlesPage;
+    return COUNT_PAGE < DEFAULT_COUNT_ARTICLES
+      ? new Array(Math.floor(COUNT_PAGE)).fill(NUMBER_ONE)
       : new Array(Math.floor(DEFAULT_COUNT_ARTICLES)).fill(NUMBER_ONE);
   };
   const chageCountPage = (e: React.ChangeEvent<HTMLSelectElement>) => {

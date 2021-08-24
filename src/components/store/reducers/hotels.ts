@@ -1,9 +1,11 @@
-import { ADD_VALUE_CARDS, DEL_VALUE_CARDS, IAction, IHotels } from "./reducers.module";
+import {
+  ADD_VALUE_CARDS, DEL_VALUE_CARDS, IAction, IHotels,
+} from './reducers.module';
 import { listHotels } from '../../../assets/hotels';
-import { CARDS_TOURISTS, ECountNight } from "../../components.module";
+import { CARDS_TOURISTS, ECountNight } from '../../components.module';
 
 const defaultState: IHotels = {
-  listHotels: listHotels,
+  listHotels,
   cardsTourists: JSON.parse(localStorage.getItem(CARDS_TOURISTS) || '[]'),
   countNight: [
     ECountNight.six,
@@ -13,15 +15,15 @@ const defaultState: IHotels = {
     ECountNight.ten,
     ECountNight.eleven,
   ],
-}
+};
 
 export const hotels = (state = defaultState, action: IAction): IHotels => {
   switch (action.type) {
     case ADD_VALUE_CARDS:
-      return {...state, cardsTourists: state.cardsTourists.concat(action.payload)};
+      return { ...state, cardsTourists: state.cardsTourists.concat(action.payload) };
     case DEL_VALUE_CARDS:
-      return {...state, cardsTourists: state.cardsTourists.filter((item, i) => action.payload !== i)};
+      return { ...state, cardsTourists: state.cardsTourists.filter((item, i) => action.payload !== i) };
     default:
       return state;
   }
-}
+};

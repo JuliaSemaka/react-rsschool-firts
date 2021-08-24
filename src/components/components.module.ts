@@ -1,5 +1,3 @@
-import { ESortBy, IArticles } from './services/api.module';
-
 export const NUMBER_ONE = 1;
 export const DEFAULT_COUNT_ARTICLES = 10;
 export const TOTAL_COUNT_ARTICLES = 100;
