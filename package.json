@@ -8,7 +8,8 @@
     "build": "webpack",
     "lint": "eslint src --fix",
     "lint-dev": "eslint --fix --ext .ts .",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "start": "webpack server --mode development --open --hot --history-api-fallback"
   },
   "repository": {
     "type": "git",

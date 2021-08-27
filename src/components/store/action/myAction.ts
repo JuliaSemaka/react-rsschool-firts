@@ -14,7 +14,7 @@ export const setResSearch = (value: IArticles[]): IAction => ({ type: RES_SEARCH
 export const fetchArticles = (arg: string,
   count: number = DEFAULT_COUNT_ARTICLES,
   sortBy: ESortBy = ESortBy.popularity,
-  page: number = NUMBER_ONE) => async (dispatch: Dispatch<IAction>) => {
+  page: number = NUMBER_ONE) => async (dispatch: Dispatch<IAction>): Promise<void> => {
   try {
     const res: Response = await fetch(
       `${PATH}?q=${arg}&apiKey=${API_KEY}&pageSize=${count}&sortBy=${sortBy}&page=${page}`,
