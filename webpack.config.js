@@ -13,11 +13,11 @@ const devServer = (isDev) =>
           open: true,
           port: 8080,
           contentBase: path.join(__dirname, 'public'),
+          historyApiFallback: true,
         },
       };
 
-const esLintPlugin = (isDev) =>
-  isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })];
+const esLintPlugin = (isDev) => (isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })]);
 
 module.exports = ({ development }) => ({
   mode: development ? 'development' : 'production',
