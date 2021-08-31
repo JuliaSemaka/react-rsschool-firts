@@ -24,8 +24,10 @@
   },
   "homepage": "https://github.com/JuliaSemaka/react-rsschool-firts#readme",
   "devDependencies": {
+    "@testing-library/dom": "^8.2.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
     "@types/react": "^17.0.17",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
@@ -60,6 +62,7 @@
     "@types/react-transition-group": "^4.4.2",
     "@types/redux-thunk": "^2.1.0",
     "jest": "^27.1.0",
+    "node-fetch": "^2.6.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

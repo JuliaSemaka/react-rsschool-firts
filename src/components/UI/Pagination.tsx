@@ -24,7 +24,7 @@ const Pagination: React.FC = () => {
 
   return (
     <>
-      <div className="pagination">
+      <div className="pagination" data-testid="pagination">
         {arrayPagination().map((item, i) => (
           <button
             className={`pagination__number ${pageNumber === i + 1 && 'active'}`}

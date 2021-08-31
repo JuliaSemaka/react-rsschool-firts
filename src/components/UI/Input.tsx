@@ -14,6 +14,7 @@ const Input: React.FC<IRadio> = ({
       className="input text"
       value={valueForm[field] as string}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValueForm({ ...valueForm, [field]: e.target.value })}
+      data-testid={field}
     />
   </div>
 );

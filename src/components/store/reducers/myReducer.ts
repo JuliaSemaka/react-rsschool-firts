@@ -12,7 +12,7 @@ import {
   SORT_BY,
 } from './reducers.module';
 
-const initialState: IMyReducer = {
+export const initialState: IMyReducer = {
   searchValue: '',
   sortBy: ESortBy.popularity,
   pageNumber: NUMBER_ONE,

@@ -29,6 +29,7 @@ const SearchBar: React.FC = () => {
         value={valueSearch}
         onChange={changeSearch}
         onKeyPress={enterPress}
+        data-testid="search-input"
       />
       <button
         className="button button-green"
