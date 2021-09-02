@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { IResultSearch, NUMBER_ONE } from './components.module';
-import { getArticles } from './services/api';
+import { IResultSearch } from './components.module';
 import { ESortBy, IArticles } from './services/api.module';
-import Loader from './UI/loader/Loader';
 import Pagination from './UI/Pagination';
 
 const ResultSearch: React.FC<IResultSearch> = ({

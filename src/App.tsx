@@ -12,18 +12,12 @@ import './styles.scss';
 const App: React.FC = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [resSearch, setResSearch] = useState<IArticles[]>([]);
-  const [totalSearch, setTotalSearch] = useState<number>(TOTAL_COUNT_ARTICLES);
+  const [totalSearch] = useState<number>(TOTAL_COUNT_ARTICLES);
   const [countArticlesPage, setCountArticlesPage] = useState<number>(DEFAULT_COUNT_ARTICLES);
   const [searchValue, setSearchValue] = useState('');
   const [isLoader, setIsLoader] = useState<boolean>(false);
   const [pageNumber, setPageNumber] = useState<number>(NUMBER_ONE);
   const [sortBy, setSortBy] = useState<ESortBy>(ESortBy.popularity);
-
-  useEffect(() => {
-    if (searchValue) {
-      searchArticles();
-    }
-  }, [sortBy, pageNumber, countArticlesPage, searchValue]);
 
   const searchArticles = async () => {
     setIsLoader(true);
@@ -36,6 +30,12 @@ const App: React.FC = () => {
       setIsLoader(false);
     }
   };
+
+  useEffect(() => {
+    if (searchValue) {
+      searchArticles();
+    }
+  }, [sortBy, pageNumber, countArticlesPage, searchValue]);
 
   return (
     <div className="wrapper">

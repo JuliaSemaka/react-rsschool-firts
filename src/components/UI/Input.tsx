@@ -2,7 +2,9 @@ import React from 'react';
 
 import { IRadio } from '../components.module';
 
-const Input: React.FC<IRadio> = ({ valueForm, setValueForm, field, title, type, errors }: IRadio) => (
+const Input: React.FC<IRadio> = ({
+  valueForm, setValueForm, field, title, type, errors,
+}: IRadio) => (
   <div className="form-item">
     <h3 className="text text-form">{title}</h3>
     {errors && <p className="text text-error">{errors}</p>}
