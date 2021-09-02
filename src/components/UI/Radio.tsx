@@ -16,8 +16,9 @@ const Radio: React.FC<IRadio> = ({
             id={`${field}-${item}`}
             value={item}
             checked={valueForm[field] === item}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValueForm({ ...valueForm, [field]: e.target.value })
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setValueForm({ ...valueForm, [field]: e.target.value });
+            }}
           />
           <label htmlFor={`${field}-${item}`}>{item}</label>
         </div>
