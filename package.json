@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "webpack serve --env development",
     "build": "webpack",
-    "lint": "eslint src",
+    "lint": "eslint src --fix",
     "lint-dev": "eslint --fix --ext .ts .",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "start": "webpack server --mode development --open --hot --history-api-fallback"
   },
   "repository": {
     "type": "git",
@@ -44,8 +45,12 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.1.8",
+    "@types/react-transition-group": "^4.4.2",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.2"
   }
 }

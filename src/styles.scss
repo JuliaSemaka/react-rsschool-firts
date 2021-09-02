@@ -50,6 +50,23 @@ input {
     }
   }
 
+  &-header {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    text-transform: uppercase;
+
+    &:hover,
+    &.selected {
+      color: #145063;
+    }
+
+    &:active {
+      color: #7ab9cc;
+    }
+  }
+
   &-price {
     font-weight: 600;
   }
@@ -132,6 +149,16 @@ input {
   }
 }
 
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -152,6 +179,22 @@ input {
   justify-content: space-around;
   align-items: center;
   margin-top: 30px;
+
+  &-nav {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#b4c7d7, #cce8ff);
+
+    &__menu {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+  }
 }
 
 .search {
@@ -188,6 +231,22 @@ input {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+    &__text {
+      width: 70%;
+      text-align: center;
+
+      & > * {
+        margin: 30px;
+      }
+    }
+  }
+
+  &-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 }
 
@@ -467,4 +526,9 @@ input {
       color: #ffffff;
     }
   }
+}
+
+.error-page {
+  font-size: 100px;
+  margin-top: 100px;
 }

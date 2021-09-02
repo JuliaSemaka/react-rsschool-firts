@@ -5,13 +5,13 @@ import { IHotel } from './components.module';
 import OneCard from './OneCard';
 
 const Cards: React.FC = () => {
-  const [listCards, setListCards] = useState(listHotels);
+  const [listCards] = useState(listHotels);
 
   return (
     <main className="main">
       <div className="main-container">
         {listCards.map((item: IHotel, index) => (
-          <OneCard key={item.name} hotel={item} />
+          <OneCard key={item.name} hotel={item} index={index} />
         ))}
       </div>
     </main>
