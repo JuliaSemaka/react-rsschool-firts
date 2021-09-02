@@ -1,13 +1,12 @@
 {
   "name": "react-first-project",
   "version": "1.0.0",
-  "description": "Reat project",
+  "description": "Reaсt project",
   "private": true,
   "scripts": {
     "dev": "webpack serve --env development",
     "build": "webpack",
-    "lint": "eslint src",
-    "lint-dev": "eslint --fix --ext .ts .",
+    "lint": "eslint src --fix",
     "watch": "webpack --watch"
   },
   "repository": {

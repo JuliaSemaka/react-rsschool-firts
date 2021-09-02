@@ -2,9 +2,9 @@ import React from 'react';
 
 import CardDescription from './CardDescription';
 import CardPrice from './CardPrice';
-import { IOneCard } from './components.module';
+import { ICard } from './components.module';
 
-const OneCard: React.FC<IOneCard> = ({ hotel }: IOneCard) => (
+const Card: React.FC<ICard> = ({ hotel }: ICard) => (
   <div className="card">
     <img className="card-img" src={`assets/hotels/${hotel.img}.jpg`} alt="img" />
     <CardPrice hotel={hotel} />
@@ -12,4 +12,4 @@ const OneCard: React.FC<IOneCard> = ({ hotel }: IOneCard) => (
   </div>
 );
 
-export default OneCard;
+export default Card;

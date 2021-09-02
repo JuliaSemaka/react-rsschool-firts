@@ -1,10 +1,10 @@
 import React from 'react';
 
 import like from '../assets/like.png';
-import { IOneCard, NUMBER_ONE } from './components.module';
+import { ICard, NUMBER_ONE } from './components.module';
 import Star from './Star';
 
-const CardDescription: React.FC<IOneCard> = ({ hotel }: IOneCard) => (
+const CardDescription: React.FC<ICard> = ({ hotel }: ICard) => (
   <div className="card-description">
     <p className="text text-title">{hotel.name}</p>
     <div className="stars">
