@@ -1,15 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import { IHeader } from './components.module';
 import SearchBar from './SearchBar';
+import { setShowForm } from './store/action/myAction';
 
-const Header: React.FC<IHeader> = ({ setShowForm, setSearchValue, isLoader }: IHeader) => (
-  <header className="header">
-    <SearchBar setSearchValue={setSearchValue} isLoader={isLoader} />
-    <button className="button button-grey text" onClick={() => setShowForm((value) => !value)}>
-      Tourists
-    </button>
-  </header>
-);
+const Header: React.FC = () => {
+  const dispatch = useDispatch();
+
+  return (
+    <header className="header">
+      <SearchBar />
+      <button className="button button-grey text" onClick={() => dispatch(setShowForm())}>
+        Tourists
+      </button>
+    </header>
+  );
+};
 
 export default Header;

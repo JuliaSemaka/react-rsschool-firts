@@ -1,24 +1,25 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { DEFAULT_COUNT_ARTICLES, IPagination, NUMBER_ONE } from '../components.module';
+import { DEFAULT_COUNT_ARTICLES, NUMBER_ONE } from '../components.module';
+import { setCountArticlesPage, setPageNumber } from '../store/action/myAction';
+import { IReducer } from '../store/reducers/reducers.module';
 
-const Pagination: React.FC<IPagination> = ({
-  countArticlesPage,
-  totalArticles,
-  pageNumber,
-  setPageNumber,
-  setCountArticlesPage,
-}: IPagination) => {
+const Pagination: React.FC = () => {
+  const {
+    totalSearch, countArticlesPage, pageNumber, countPage,
+  } = useSelector((state: IReducer) => state.myReducer);
+  const dispatch = useDispatch();
+
   const arrayPagination = (): number[] => {
-    const countPage = totalArticles / countArticlesPage;
-    return countPage < DEFAULT_COUNT_ARTICLES
-      ? new Array(Math.floor(countPage)).fill(NUMBER_ONE)
+    const COUNT_PAGE = totalSearch / countArticlesPage;
+    return COUNT_PAGE < DEFAULT_COUNT_ARTICLES
+      ? new Array(Math.floor(COUNT_PAGE)).fill(NUMBER_ONE)
       : new Array(Math.floor(DEFAULT_COUNT_ARTICLES)).fill(NUMBER_ONE);
   };
-  const countPage = [10, 20, 30, 50, 100];
   const chageCountPage = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPageNumber(NUMBER_ONE);
-    setCountArticlesPage(Number(e.target.value));
+    dispatch(setPageNumber(NUMBER_ONE));
+    dispatch(setCountArticlesPage(Number(e.target.value)));
   };
 
   return (
@@ -28,7 +29,7 @@ const Pagination: React.FC<IPagination> = ({
           <button
             className={`pagination__number ${pageNumber === i + 1 && 'active'}`}
             key={i}
-            onClick={() => setPageNumber(i + 1)}
+            onClick={() => dispatch(setPageNumber(i + 1))}
           >
             {i + 1}
           </button>
