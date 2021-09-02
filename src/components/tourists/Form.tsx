@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { ECountNight, EGender, IErrors, IForm } from '../components.module';
+import {
+  ECountNight, EGender, IErrors, IForm,
+} from '../components.module';
 import Checkbox from '../UI/Checkbox';
 import Input from '../UI/Input';
 import Radio from '../UI/Radio';
@@ -19,9 +21,9 @@ const Form: React.FC<IForm> = ({ valueForm, setValueForm, addCards }: IForm) => 
     ECountNight.eleven,
   ];
 
-  useEffect(() => {
-    validate();
-  }, [valueForm]);
+  const resetErrors = (): void => {
+    setErrors({});
+  };
 
   const validate = (): void => {
     resetErrors();
@@ -39,9 +41,9 @@ const Form: React.FC<IForm> = ({ valueForm, setValueForm, addCards }: IForm) => 
     }
   };
 
-  const resetErrors = (): void => {
-    setErrors({});
-  };
+  useEffect(() => {
+    validate();
+  }, [valueForm]);
 
   const addTourist = (event: React.SyntheticEvent): void => {
     event.preventDefault();
