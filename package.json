@@ -9,7 +9,9 @@
     "lint": "eslint src --fix",
     "lint-dev": "eslint --fix --ext .ts .",
     "watch": "webpack --watch",
-    "start": "webpack server --mode development --open --hot --history-api-fallback"
+    "start": "webpack server --mode development --open --hot --history-api-fallback",
+    "test": "npx jest tests",
+    "test-coverage": "npx jest tests --coverage"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,10 @@
   },
   "homepage": "https://github.com/JuliaSemaka/react-rsschool-firts#readme",
   "devDependencies": {
+    "@testing-library/dom": "^8.2.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
     "@types/react": "^17.0.17",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
@@ -34,8 +40,10 @@
     "eslint-plugin-import": "^2.24.0",
     "eslint-webpack-plugin": "^3.0.1",
     "html-webpack-plugin": "^5.3.2",
+    "jest-dom": "^4.0.0",
     "mini-css-extract-plugin": "^2.2.0",
     "prettier": "^2.3.2",
+    "react-test-renderer": "^17.0.2",
     "sass": "^1.37.5",
     "sass-loader": "^12.1.0",
     "ts-loader": "^9.2.5",
@@ -45,10 +53,16 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.1",
     "@types/react-redux": "^7.1.18",
     "@types/react-router-dom": "^5.1.8",
     "@types/react-transition-group": "^4.4.2",
     "@types/redux-thunk": "^2.1.0",
+    "jest": "^27.1.0",
+    "node-fetch": "^2.6.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

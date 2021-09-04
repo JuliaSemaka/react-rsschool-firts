@@ -12,6 +12,7 @@ const Checkbox: React.FC<IRadio> = ({
       id={field}
       checked={valueForm[field] as boolean}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValueForm({ ...valueForm, [field]: e.target.checked })}
+      data-testid={field}
     />
     <label htmlFor={field}>{title}</label>
   </div>

@@ -13,7 +13,7 @@ const ResultSearch: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="result-search">
+    <div className="result-search" data-testid="result-search">
       <div className="result-search__sort">
         <p className="text text-form">Sort By:</p>
         <select
