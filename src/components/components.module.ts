@@ -1,4 +1,8 @@
+import { ESortBy, IArticles } from './services/api.module';
+
 export const NUMBER_ONE = 1;
+export const DEFAULT_COUNT_ARTICLES = 10;
+export const TOTAL_COUNT_ARTICLES = 100;
 export const DEFAULT_COUNT_NIGHT = '8';
 export const CARDS_TOURISTS = 'cardsTourists';
 
@@ -31,6 +35,32 @@ export interface IOneCard {
 
 export interface IHeader {
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  isLoader: boolean;
+}
+
+export interface ISearchBar {
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  isLoader: boolean;
+}
+
+export interface IResultSearch {
+  resSearch: IArticles[];
+  totalSearch: number;
+  countArticlesPage: number;
+  pageNumber: number;
+  sortBy: ESortBy;
+  setSortBy: React.Dispatch<React.SetStateAction<ESortBy>>;
+  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
+  setCountArticlesPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface IPagination {
+  countArticlesPage: number;
+  totalArticles: number;
+  pageNumber: number;
+  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
+  setCountArticlesPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ITourists {
